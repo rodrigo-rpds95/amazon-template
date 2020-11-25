@@ -1,0 +1,40 @@
+import './Header.css';
+
+export default () => {
+    return (
+        <header>
+            <a href="#" class="logo-header"></a>   
+            <div class="components-header">
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="#">Séries</a></li>
+                    <li><a href="#">Filmes</a></li>
+                    <li><a href="#">Infantil</a></li>
+                    <li><a href="#">Canais</a></li>
+                </ul>
+                <div className="header-search">
+                    <input type="search" placeholder="Busca" />
+                </div>
+                <div className="header-profile">
+                    <img src="" alt="Profile" />
+                    <span class="profile-name">Usuário A</span>
+                </div>
+            </div>
+            <div className="menu-header">
+                <ul>
+                    <li><a href="#">Sua Lista</a></li>
+                    <li><a href="#">Conta e configurações</a></li>
+                    <li><a href="#">Assista onde quiser</a></li>
+                    <li><a href="#">Ajuda</a></li>
+                    <li><a href="#">Não é Rodrigo? Sair</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">crianças</a></li>
+                    <li><a href="#">Adicionar novo perfil</a></li>
+                    <li><a href="#">Editar perfis</a></li>
+                    <li><a href="#">Saiba mais</a></li>
+                </ul>
+            </div>
+        </header>
+    )
+}
