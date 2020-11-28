@@ -6,17 +6,17 @@ const Header = () => {
             <a href="/" className="logo-header"><p>Logo</p></a>   
             <div className="components-header">
                 <ul>
-                    <li><a href="/">Início</a></li>
+                    <li><a href="/" className="active">Início</a></li>
                     <li><a href="/">Séries</a></li>
                     <li><a href="/">Filmes</a></li>
                     <li><a href="/">Infantil</a></li>
                     <li><a href="/">Canais</a></li>
                 </ul>
                 <div className="header-search">
-                    <input type="search" placeholder="Busca" />
+                    <input type="search" name="search" placeholder="Busca" />
                 </div>
                 <div className="header-profile">
-                    <img src="/" alt="Profile" />
+                    <img src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png" alt="Profile" />
                     <span className="profile-name">Usuário A</span>
                 </div>
             </div>
