@@ -17,7 +17,7 @@ const Header = () => {
                 </div>
                 <div className="header-profile">
                     <img src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png" alt="Profile" />
-                    <span className="profile-name">Usuário A</span>
+                    <span className="profile-name">User</span>
                 </div>
             </div>
             <div className="menu-header">
