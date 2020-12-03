@@ -1,6 +1,14 @@
+import React, { useState } from 'react'
 import './Header.css';
 
 const Header = () => {
+
+    const [expand, setExpandInput] = useState(false);
+
+    function onClickHandler(){
+        (window.innerWidth < 1100) ? setExpandInput(true) : setExpandInput(false);
+    }
+
     return (
         <header>
             <a href="/" className="logo-header"><p>Logo</p></a>   
@@ -12,8 +20,9 @@ const Header = () => {
                     <li><a href="/">Infantil</a></li>
                     <li><a href="/">Canais</a></li>
                 </ul>
-                <div className="header-search">
-                    <input type="search" name="search" placeholder="Busca" />
+                <div className={expand ? 'header-search expand' : 'header-search'}>
+                    <input onClick={onClickHandler} type="search" name="search" placeholder="Busca" />
+                    <span className="close-search" onClick={e => setExpandInput(false)}></span>
                 </div>
                 <div className="header-profile">
                     <img src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png" alt="Profile" />
