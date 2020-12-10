@@ -23,6 +23,7 @@ header .components-header {
     align-items: center;
     display: flex;
     flex: 1;
+    position: relative;
 }
 header .components-header ul {
     flex: 1;
@@ -34,7 +35,7 @@ header .components-header ul li {
     display: inline-block;
 }
 header .components-header ul li a {
-    color: #b3b8bc;
+    color: rgba(242,244,246,.9);
     display: inline-block;
     font-size: 17px;
     line-height: 25px;
@@ -76,27 +77,74 @@ header .components-header .header-search .close-search {
     height: 40px;
     width: 51px;
 }
+header .components-header .header-profile {
+    cursor: pointer;
+}
+header .components-header .header-profile::after {
+    background-color: rgba(0,0,0,.6);
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 71px;
+}
 header .components-header .header-profile img {
     height: 32px;
     margin-right: 10px;
     vertical-align: middle;
     width: 32px;
 }
-header .components-header .profile-name {
+header .components-header .header-profile .profile-name {
     color: rgba(242,244,246,.7);
     transition: all .2s ease-out;
 } 
-header .components-header .profile-name:hover {
+header .components-header .header-profile .profile-name::after {
+    content: "";
+    border-top: 4.5px solid #8197a4;
+    border-right: 4.5px solid transparent;
+    border-left: 4.5px solid transparent;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 7px;
+}
+header .components-header .header-profile:hover .profile-name {
     color: #fff;
     cursor: pointer;
 }
 header .menu-header {
-    display: none;
+    background: #252e39;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px #000;
+    position: absolute;
+    right: 0;
+    top: 54px;
+    width: 400px;
 } 
+header .menu-header ul {
+    float: right;
+    width: 50%;
+}
+header .menu-header ul:last-child {
+    border-right: 1px solid #414c53;
+}
+header .menu-header ul li { 
+    display: block;
+}
+header .menu-header ul li a { 
+    color: #c4cacf;
+    display: block;
+    margin: 0;
+    font-size: 16px;
+    padding: 8px 16px;
+}
 
 @media only screen and (max-width: 1050px){
     header {
         position: relative;
+    }
+    header .components-header {
+        position: static;
     }
     header .components-header .header-search {
         transition: all .2s ease-out;
@@ -112,19 +160,23 @@ header .menu-header {
         border: 0;
         background-color: transparent;
     }
-    header .components-header .header-search.expand  {
+    header .components-header .header-search.expandedInput  {
         margin-right: 15px;
         left: 15px;
         position: absolute;
         right: 15px;
     }
-    header .components-header .header-search.expand input {
+    header .components-header .header-search.expandedInput input {
         background-color: #19232c;
         border: 1px solid #4d5d68;
         width: calc(100% - 56px);
     }
-    header .components-header .header-search.expand .close-search {
+    header .components-header .header-search.expandedInput .close-search {
         display: inline-block;
+    }
+    header .menu-header {
+        right: 48px;
+        top: 66px;
     }
 }
 
