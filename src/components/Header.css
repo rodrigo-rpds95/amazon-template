@@ -116,6 +116,7 @@ header .menu-header {
     background: #252e39;
     border-radius: 3px;
     box-shadow: 0 4px 8px #000;
+    display: none;
     position: absolute;
     right: 0;
     top: 54px;
@@ -138,6 +139,8 @@ header .menu-header ul li a {
     font-size: 16px;
     padding: 8px 16px;
 }
+
+header .show { display: block;}
 
 @media only screen and (max-width: 1050px){
     header {

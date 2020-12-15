@@ -4,6 +4,7 @@ import './Header.css';
 const Header = () => {
 
     const [expandedInput, setExpandSearchInput] = useState(false);
+    const [expandedMenu, setExpandMenu] = useState(false);
 
     function onClickHandler(){
         (window.innerWidth < 1100) ? setExpandSearchInput(true) : setExpandSearchInput(false);
@@ -24,11 +25,11 @@ const Header = () => {
                     <input onClick={onClickHandler} type="search" name="search" placeholder="Busca" />
                     <span className="close-search" onClick={e => setExpandSearchInput(false)}></span>
                 </div>
-                <div className="header-profile">
+                <div className="header-profile" onClick={e => setExpandMenu(!expandedMenu)}>
                     <img src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png" alt="Profile" />
                     <span className="profile-name">User</span>
                 </div>
-                <div className="menu-header">
+                <div className={expandedMenu ? 'menu-header show': 'menu-header'}>
                     <ul>
                         <li><a href="/">crianças</a></li>
                         <li><a href="/">Adicionar novo perfil</a></li>
