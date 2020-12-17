@@ -44,6 +44,7 @@ const Header = () => {
                         <li><a href="/">Não é Rodrigo? Sair</a></li>
                     </ul>
                 </div>
+                <div className="back-overlay"></div>
             </div>
         </header>
     )

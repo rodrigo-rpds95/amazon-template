@@ -142,6 +142,8 @@ header .menu-header ul li a {
 
 header .show { display: block;}
 
+.back-overlay { background: rgba(0, 0, 0, 0.4); display: none;}
+
 @media only screen and (max-width: 1050px){
     header {
         position: relative;
@@ -178,8 +180,8 @@ header .show { display: block;}
         display: inline-block;
     }
     header .menu-header {
-        right: 48px;
         top: 66px;
+        width: 100%;
     }
 }
 
