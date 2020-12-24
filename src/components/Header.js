@@ -5,6 +5,7 @@ const Header = () => {
 
     const [expandedInput, setExpandSearchInput] = useState(false);
     const [expandedMenu, setExpandMenu] = useState(false);
+    const [expandedNavMenu, setExpandedNavMenu] = useState(false);
 
     function onClickHandler(){
         (window.innerWidth < 1100) ? setExpandSearchInput(true) : setExpandSearchInput(false);
@@ -14,7 +15,8 @@ const Header = () => {
         <header>
             <a href="/" className="logo-header"><p>Logo</p></a>   
             <div className="components-header">
-                <ul>
+                <span className={expandedNavMenu ? 'explore-menu explore-menu-on invertIcon' : 'explore-menu'} onClick={e => setExpandedNavMenu(!expandedNavMenu)}>Explorar <i></i></span>
+                <ul className={expandedNavMenu ? 'show' : 'navMenu'}>
                     <li><a href="/" className="active">Início</a></li>
                     <li><a href="/">Séries</a></li>
                     <li><a href="/">Filmes</a></li>
@@ -25,17 +27,21 @@ const Header = () => {
                     <input onClick={onClickHandler} type="search" name="search" placeholder="Busca" />
                     <span className="close-search" onClick={e => setExpandSearchInput(false)}></span>
                 </div>
-                <div className="header-profile" onClick={e => setExpandMenu(!expandedMenu)}>
+                <div className={expandedMenu ? 'header-profile header-profile-on' : 'header-profile'} onClick={e => setExpandMenu(!expandedMenu)}>
                     <img src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png" alt="Profile" />
-                    <span className="profile-name">User</span>
+                    <span className={expandedMenu ? 'profile-name invertIcon' : 'profile-name'}>User</span>
                 </div>
-                <div className={expandedMenu ? 'menu-header show': 'menu-header'}>
+                <div className={expandedMenu ? 'menu-header show' : 'menu-header'}>
+                    <div onClick={e => setExpandMenu(!expandedMenu)} className="close-menu-header"></div>
+                    <span>Perfis</span>
                     <ul>
-                        <li><a href="/">crianças</a></li>
-                        <li><a href="/">Adicionar novo perfil</a></li>
+                        <li><a href="/" className="profile-icon">User</a></li>
+                        <li><a href="/" className="child-icon">crianças</a></li>
+                        <li><a href="/" className="add-profile-icon">Adicionar novo perfil</a></li>
                         <li><a href="/">Editar perfis</a></li>
                         <li><a href="/">Saiba mais</a></li>
                     </ul>
+                    <span>Mais</span>
                     <ul>
                         <li><a href="/">Sua Lista</a></li>
                         <li><a href="/">Conta e configurações</a></li>

@@ -25,6 +25,9 @@ header .components-header {
     flex: 1;
     position: relative;
 }
+header .components-header .explore-menu {
+    display: none;
+}
 header .components-header ul {
     flex: 1;
     list-style: none;
@@ -80,14 +83,19 @@ header .components-header .header-search .close-search {
 header .components-header .header-profile {
     cursor: pointer;
 }
-header .components-header .header-profile::after {
+header .components-header .header-profile::after, 
+header .components-header .header-profile::before,
+header .components-header .explore-menu::after,
+header .components-header .explore-menu::before {
     background-color: rgba(0,0,0,.6);
     bottom: 0;
-    content: "";
     left: 0;
     position: fixed;
     right: 0;
     top: 71px;
+}
+header .components-header .header-profile-on::after {
+    content: "";
 }
 header .components-header .header-profile img {
     height: 32px;
@@ -107,6 +115,13 @@ header .components-header .header-profile .profile-name::after {
     display: inline-block;
     vertical-align: middle;
     margin-left: 7px;
+    transition: all 0.2s;
+}
+header .components-header .header-profile .profile-name.invertIcon {
+    color: #fff;
+}
+header .components-header .header-profile .profile-name.invertIcon::after {
+    transform: rotate(180deg);
 }
 header .components-header .header-profile:hover .profile-name {
     color: #fff;
@@ -122,6 +137,22 @@ header .menu-header {
     top: 54px;
     width: 400px;
 } 
+header .menu-header .close-menu-header {
+    display: none;
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMTkiIHZpZXdCb3g9IjI4NSA2MiAxOSAxOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiIHN0cm9rZT0iI0FCQUJBQiIgc3Ryb2tlLXdpZHRoPSIyIj48cGF0aCBkPSJNMjg3LjQ5NyA2NC4zMjhsMTQuMjY5IDE0LjI2OE0zMDEuNjcyIDY0LjQ5N2wtMTQuMjY4IDE0LjI2OSIvPjwvZz48L3N2Zz4=) no-repeat center center;
+    cursor: pointer;
+    height: 56px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 56px;
+}
+header .menu-header span {
+    color: #fff;
+    display: none;
+    font-size: 18px;
+    font-weight: bold;
+}
 header .menu-header ul {
     float: right;
     width: 50%;
@@ -139,6 +170,28 @@ header .menu-header ul li a {
     font-size: 16px;
     padding: 8px 16px;
 }
+header .menu-header ul li a.profile-icon::before, header .menu-header ul li a.child-icon::before, header .menu-header ul li a.add-profile-icon::before {
+    content: "";
+    background-size: 32px 32px;
+    border-radius: 50%;
+    display: inline-block;
+    height: 32px;
+    margin-right: 10px;
+    vertical-align: middle;
+    width: 32px;
+}
+header .menu-header ul li a.child-icon::before {
+    background: url(https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/kid-1.png) no-repeat left center / 32px 32px;
+}
+header .menu-header ul li a.add-profile-icon::before {
+    background: #425265 url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgc3Ryb2tlPSIjRjJGNEY2IiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj48cGF0aCBkPSJNMSAxMGgxOE0xMCAxOVYxIi8+PC9nPjwvc3ZnPg==) no-repeat center center / 12px;
+}
+header .menu-header ul li a.profile-icon {
+    display: none;
+}
+header .menu-header ul li a.profile-icon::before {
+    background: url(https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png) no-repeat left center/ 32px 32px;
+}
 
 header .show { display: block;}
 
@@ -150,6 +203,9 @@ header .show { display: block;}
     }
     header .components-header {
         position: static;
+    }
+    header .components-header ul li a {
+        font-size: 15px;
     }
     header .components-header .header-search {
         transition: all .2s ease-out;
@@ -166,7 +222,7 @@ header .show { display: block;}
         background-color: transparent;
     }
     header .components-header .header-search.expandedInput  {
-        margin-right: 15px;
+        margin-right: 0;
         left: 15px;
         position: absolute;
         right: 15px;
@@ -182,6 +238,121 @@ header .show { display: block;}
     header .menu-header {
         top: 66px;
         width: 100%;
+    }
+}
+
+@media only screen and (max-width: 750px){
+    header {
+        padding: 15px 20px;
+    }
+    header .logo-header p {
+        height: 32px;
+    }
+    header .components-header .header-profile-on::before,
+    header .components-header .explore-menu-on::before {
+        content: "";
+        top: 0;
+        background: none;
+    }
+    header .components-header .explore-menu-on::after {
+        content: "";
+    }
+    header .components-header .explore-menu { 
+        color: #8197a4;
+        cursor: pointer;
+        display: inline-block;
+    }
+    header .components-header .explore-menu i::after {
+        content: "";
+        border-top: 4.5px solid #8197a4;
+        border-right: 4.5px solid transparent;
+        border-left: 4.5px solid transparent;
+        display: inline-block;
+        margin-left: 5px;
+        vertical-align: middle;
+        transition: all 0.2s;
+    }
+    header .components-header .explore-menu.invertIcon i::after {
+        transform: rotate(180deg);
+    }
+    header .components-header .header-search {
+        flex: 1;
+        text-align: right;
+    }
+    header .components-header > ul {
+        background: #252e39;
+        display: none;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 66px;
+        width: 100%;
+    }
+    header .components-header > ul.show {
+        display: block;
+    }
+    header .components-header > ul li {
+        display: block;
+    }
+    header .components-header > ul li a {
+        border-bottom: 1px solid #323e4c;
+        display: block;
+        padding: 14px 48px 14px 20px;
+        margin: 0;
+    }
+    header .components-header > ul li a.active {
+        border-bottom: 1px solid #323e4c;
+        font-weight: bold;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    header .logo-header {
+        margin-right: 0;
+    } 
+    header .logo-header p {
+        height: 30px;
+    }
+    header .components-header .header-profile::before {
+        display: none;
+    }
+    header .menu-header {
+        top: 0;
+    }
+    header .menu-header {
+        padding: 20px 15px;
+    }
+    header .menu-header span {
+        display: block;
+    }
+    header .menu-header ul {
+        float: left;
+        width: 100%;
+        padding: 10px 0;
+    }
+    header .menu-header .close-menu-header {
+        display: block;
+    }
+    header .menu-header ul:first-of-type {
+        border-bottom: 1px solid #0f171e;
+        margin-bottom: 20px;
+    }
+    header .menu-header ul:last-child {
+        border: 0;
+    }
+    header .menu-header ul li a {
+        padding: 10px 0;
+    }
+    header .menu-header ul li a.profile-icon {
+        color: #fff;
+        display: block;
+        font-weight: bold;
+    }
+    header .menu-header ul li a.profile-icon::before {
+        border: 2px solid #fff;
+    }
+    header .components-header .header-profile .profile-name {
+        display: none;
     }
 }
 
