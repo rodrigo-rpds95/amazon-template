@@ -96,6 +96,7 @@ header .components-header .explore-menu::before {
 }
 header .components-header .header-profile-on::after {
     content: "";
+    z-index: 1;
 }
 header .components-header .header-profile img {
     height: 32px;
@@ -193,7 +194,7 @@ header .menu-header ul li a.profile-icon::before {
     background: url(https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png) no-repeat left center/ 32px 32px;
 }
 
-header .show { display: block;}
+header .show { display: block; z-index: 1;}
 
 .back-overlay { background: rgba(0, 0, 0, 0.4); display: none;}
 

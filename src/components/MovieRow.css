@@ -1,0 +1,152 @@
+.lists {
+    overflow: hidden;
+}
+.movieRow {
+    margin-bottom: 30px;
+}
+.movieRow h2 {
+    font-size: 19px;
+    margin: 0px 0px 0px 65px;
+}
+.movieRow--listarea {
+    padding-left: 50px;
+}
+.movieRow--list {
+    position: relative;
+    transition: all ease 0.5s;
+}
+.movieRow--item::before {
+    background: url(../icon-thumb.svg) top left no-repeat;
+    content: "";
+    display: inline-block;
+    height: 24px;
+    width: 28px;
+    position: absolute;
+    z-index: 1;
+}
+.movieRow--item {
+    display: inline-block;
+    height: 185px;
+    overflow: hidden;
+    position: relative;
+    transform: scale(0.9); 
+    transition: all ease 0.2s;
+    width: 305px;
+}
+.movieRow--item:hover {
+    overflow: visible;
+    height: 185px;
+    transform: scale(1);
+    z-index: 1;
+}
+.movieRow--item .movieRow--content {
+    position: absolute;
+}
+.movieRow--item:hover .movieRow--content {
+    border: 2px solid #00a8e1;
+}
+.movieRow--item .movieRow--content .movieRow--image img {
+    width: 100%;
+}
+.movieRow--item:hover .movieRow--content .movieRow--image {
+    height: 185px;
+    overflow: hidden;
+}
+.movieRow--item:hover .movieRow--content .movieRow--desc {
+    background: linear-gradient(rgba(27,37,48,0),#1b2530 36px);
+    margin-top: -36px;
+    overflow: hidden;
+    padding: 24px;
+    position: relative;
+}
+.movieRow--item:hover .movieRow--content .movieRow--desc .box-player  > a{
+    display: inline-block;
+}
+.movieRow--item:hover .movieRow--content .movieRow--desc .box-player .mini-player {
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 6px 6px 6px 10px;
+}
+.movieRow--item:hover .movieRow--content .movieRow--desc .box-player .mini-player::before {
+   	border-top: 8px solid transparent;
+	border-left: 16px solid #fff;
+    border-bottom: 8px solid transparent;
+    content: "";	
+    display: inline-block;
+    height: 0;
+    vertical-align: middle;
+    width: 0;
+}
+.movieRow--item:hover .movieRow--content .movieRow--desc .box-player .box-right {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+    width: 90px;
+}
+.movieRow--item:hover .movieRow--content .movieRow--desc .box-player p {
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 0 5px;
+}
+.movieRow--item:hover .movieRow--content .movieRow--desc .box-player .bar-time {
+    height: 3px;
+    background: #495159;
+    position: relative;
+    width: 100%;
+}
+.movieRow--item:hover .movieRow--content .movieRow--desc .box-player .bar-time::before {
+    background: #00a0d6;
+    content: "";
+    height: 3px;
+    position: absolute;
+    width: 30%;
+} 
+
+.movieRow--item:hover .movieRow--content .name-movie {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.movieRow--item:hover .movieRow--content .desc-movie {
+    font-size: 13px;
+    margin-top: 0;
+}
+.movieRow--item:hover .movieRow--content .date-movie  {
+    font-size: 13px;
+    color: #8197a4;
+    margin-bottom: 0;
+}
+
+.movieRow--left, .movieRow--right {
+    position: absolute;
+    width: 40px;
+    height: 182px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all ease 0.5s;
+}
+.movieRow--left:hover, .movieRow--right:hover {
+    background-color: rgba(15,23,30,.75);
+}
+.movieRow--left {
+    background: rgba(15,23,30,.5) url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTMuMjM3IDE3LjIzN3YtMi40NzRsMTQgMTRjLjY4NC42ODMuNjg0IDEuNzkgMCAyLjQ3NGExLjc0OCAxLjc0OCAwIDAxLTIuNDc0IDBsLTE0LTE0YTEuNzQ4IDEuNzQ4IDAgMDEwLTIuNDc0bDE0LTE0YTEuNzQ4IDEuNzQ4IDAgMDEyLjQ3NCAwYy42ODQuNjgzLjY4NCAxLjc5IDAgMi40NzRsLTE0IDE0eiIgZmlsbD0iI0VGRjFGMSIvPjwvc3ZnPg==) no-repeat center;
+    left: 0;
+}
+.movieRow--right{
+    background: rgba(15,23,30,.5) url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE0Ljc2MyAxNy4yMzd2LTIuNDc0bC0xNCAxNGExLjc0OCAxLjc0OCAwIDAwMCAyLjQ3NGMuNjgzLjY4NCAxLjc5LjY4NCAyLjQ3NCAwbDE0LTE0YTEuNzQ4IDEuNzQ4IDAgMDAwLTIuNDc0bC0xNC0xNEExLjc1IDEuNzUgMCAwMC43NjMgMy4yMzdsMTQgMTR6IiBmaWxsPSIjRUZGMUYxIi8+PC9zdmc+) no-repeat center;
+    right: 0;
+}
+.movieRow:hover .movieRow--left, .movieRow:hover .movieRow--right { opacity: 1;}
+
+@media (max-width: 760px){
+    .movieRow--left,
+    .movieRow--right {
+        opacity: 1;
+    }
+}
