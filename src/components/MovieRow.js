@@ -4,16 +4,16 @@ import './MovieRow.css';
 const MovieRow = ({title, items}) => {
 
     const [scrollX, setScrollX] = useState(0);
-    const [hiddenLeftArrow, setHiddenLeftArrow] = useState(false);
-    const [hiddenRightArrow, setHiddenRightArrow] = useState(true);
+    const [hiddenLeftArrow, setHiddenLeftArrow] = useState(true);
+    const [hiddenRightArrow, setHiddenRightArrow] = useState(false);
 
     const handleLeftArrow = () => {
         let x = scrollX + Math.round(window.innerWidth / 2);
         if(x >= 0){
             x = 0;
-            setHiddenLeftArrow(false);
+            setHiddenLeftArrow(true);
         }
-        setHiddenRightArrow(true);
+        setHiddenRightArrow(false);
         setScrollX(x);
     }
     const handleRightArrow = () => {
@@ -21,18 +21,18 @@ const MovieRow = ({title, items}) => {
         let listW = items.results.length * 308;
         if((window.innerWidth - listW) > x){
             x = (window.innerWidth - listW) - 60;
-            setHiddenRightArrow(false);
+            setHiddenRightArrow(true);
         }
-        setHiddenLeftArrow(true);
+        setHiddenLeftArrow(false);
         setScrollX(x);
     }
 
     return (
         <div className="movieRow">
             <h2>{title}</h2>
-            <div className="movieRow--left" style={{display: hiddenLeftArrow ? 'block' : 'none'}} onClick={handleLeftArrow}>
+            <div className="movieRow--left" style={{display: hiddenLeftArrow ? 'none' : 'block'}} onClick={handleLeftArrow}>
             </div>
-            <div className="movieRow--right" style={{display: hiddenRightArrow ? 'block' : 'none'}} onClick={handleRightArrow}>
+            <div className="movieRow--right" style={{display: hiddenRightArrow ? 'none' : 'block'}} onClick={handleRightArrow}>
             </div>
             <div className="movieRow--listarea">
                 <div className="movieRow--list" style={{
