@@ -8,6 +8,7 @@ import MovieRow from './components/MovieRow';
 function App() {
 
   const [movieList, setMovieList] = useState([]);
+  const [slidesHomeTeste, setSlidesHome] = useState([]);
   const slidesHome = [
     'https://www.w3schools.com/howto/img_snow_wide.jpg',
     'https://www.w3schools.com/howto/img_nature_wide.jpg',
@@ -21,6 +22,14 @@ function App() {
       let list = await Tmdb.getHomeList();
       setMovieList(list);
 
+
+      let originals = list.filter(i => i.slug === 'originals');
+      let slide1 = await Tmdb.getMovieInfo(originals[0].items.results[0].id, 'tv');
+      let slide2 = await Tmdb.getMovieInfo(originals[0].items.results[1].id, 'tv');
+      let slide3 = await Tmdb.getMovieInfo(originals[0].items.results[2].id, 'tv');
+
+      setSlidesHome([slide1, slide2, slide3]);
+
     }
 
     loadAll();
@@ -31,7 +40,7 @@ function App() {
     
       <Header />
 
-      <Slide items={slidesHome} />
+      <Slide items={slidesHomeTeste} />
 
       <section className="lists">
         {movieList.map((item, key) => (

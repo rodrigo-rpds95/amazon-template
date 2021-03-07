@@ -53,7 +53,7 @@ const Slide = ({items}) => {
             <div className="slide-row" style={{transform: `translateX(${scrollSlide}px)`}}>
                 {items.length > 0 && items.map((image, key) => (
                     <div className="slide-image" key={key}>
-                        <img src={image} alt={'Imagem-' + key} />
+                        <img src={`https://image.tmdb.org/t/p/original${items[key].backdrop_path}`} alt={'Imagem-' + key} />
                     </div>
                 ))}
             </div>
